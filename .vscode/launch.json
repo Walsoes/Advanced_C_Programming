@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+      {
+        "name": "C/C++: debug active file",
+        "type": "vgdb",
+        "request": "launch",
+        "program": "${fileBasenameNoExtension}.out",
+        "args": [],
+        "cwd": "${fileDirname}",
+        "externalConsole": false,
+        "debugger": "gdb"
+      },
+      {
+        "name": "C adv: Debug active file",
+        "type": "vgdb",
+        "request": "launch",
+        "program": "${relativeFileDirname}/../build-Debug/${fileBasenameNoExtension}.c.o",
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "externalConsole": false,
+        "debugger": "gdb"
+      }
+    ]
+  }

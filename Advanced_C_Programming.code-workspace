@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {"[c]": {
+		"editor.wordBasedSuggestions": "matchingDocuments",
+		"editor.suggest.insertMode": "replace",
+		"editor.semanticHighlighting.enabled": true
+	},
+	"files.associations": {
+		"*.ejs": "html",
+		"other.h": "c"
+	}
+}
+}

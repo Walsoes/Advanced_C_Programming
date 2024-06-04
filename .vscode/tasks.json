@@ -1,0 +1,127 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "echo",
+            "type": "shell",
+            "command": "echo ${workspaceFolder}"
+        },
+        {
+            "type": "shell",
+            "label": "Build all C src",
+            "command": "gcc",
+            "args": [
+                "-gdwarf-2",
+                "-O0",
+                "${relativeFileDirname}/*${fileExtname}",
+                "-o",
+                "${relativeFileDirname}/../build-Debug/${fileBasenameNoExtension}.o",
+                "-Wall",
+                "-std=c99",
+                "-static"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "compiler: /usr/bin/gcc",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Build single C-file",
+            "command": "gcc",
+            "args": [
+                "-gdwarf-2",
+                "-O0",
+                "${file}",
+                "-o",
+                "${relativeFileDirname}/../build-Debug/${fileBasenameNoExtension}.c.o",
+                "-Wall",
+                "-std=c99",
+                "-static",
+                "-lm"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "compiler: /usr/bin/gcc",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        },
+        {
+            "label": "Run build",
+            "type": "shell",
+            "command": "./${relativeFileDirname}/${fileBasenameNoExtension}.o",
+            "group": "none",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Complie and run single c-file",
+            "type": "shell",
+            "command": "./${relativeFileDirname}/../build-Debug/${fileBasenameNoExtension}.c.o",
+            "group": "none",
+            "dependsOn": "Build single C-file",
+            "dependsOrder": "sequence",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "sourceFiles",
+            "type": "promptString",
+            "description": "Enter the source files to compile (space-separated) and within ''",
+            "default": "'Project1/src/main.c' 'Project1/src/other.c'"
+        }
+    ]
+}
