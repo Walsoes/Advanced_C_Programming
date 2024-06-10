@@ -3,37 +3,16 @@
 
 long long convertDecimalToBinary(int n);
 
-intmax_t powjii(int x, int y)
-{
-    if (y < 0)
-    {
-        switch (x)
-        {
-        case 0:
-            return INTMAX_MAX;
-        case 1:
-            return 1;
-        case -1:
-            return y % 2 ? -1 : 1;
-        }
-        return 0;
-    }
-    intmax_t z = 1;
-    intmax_t base = x;
-    while (y)
-    {
-        if (y & 1)
-        {
-            z *= base;
-        }
-        y >>= 1;
-        base *= base;
-    }
-    return z;
-}
-
 int main()
 {
+
+    char bitmask = 0b1
+
+    int result2 = (0b1111 << 4);
+
+
+
+    printf("Result: %d\n", result2);
 
     int num1 = 0, num2 = 0;
     long long b_num1 = 0, b_num2 = 0;

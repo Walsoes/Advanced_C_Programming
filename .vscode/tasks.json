@@ -20,13 +20,14 @@
                 "${relativeFileDirname}/../build-Debug/${fileBasenameNoExtension}.o",
                 "-Wall",
                 "-std=c99",
-                "-static"
+                "-static",
+                "-lm"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
-                "$gcc"
+                // "$gcc"
             ],
             "group": {
                 "kind": "build",
@@ -35,9 +36,9 @@
             "detail": "compiler: /usr/bin/gcc",
             "presentation": {
                 "echo": true,
-                "reveal": "silent",
-                "focus": false,
-                "panel": "shared",
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated",
                 "showReuseMessage": true,
                 "clear": true
             }
@@ -61,7 +62,7 @@
                 "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
-                "$gcc"
+              
             ],
             "group": {
                 "kind": "build",
@@ -87,8 +88,8 @@
             },
             "presentation": {
                 "echo": true,
-                "reveal": "silent",
-                "focus": false,
+                "reveal": "always",
+                "focus": true,
                 "panel": "shared",
                 "showReuseMessage": true,
                 "clear": true
@@ -107,9 +108,9 @@
             },
             "presentation": {
                 "echo": true,
-                "reveal": "silent",
-                "focus": false,
-                "panel": "shared",
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated",
                 "showReuseMessage": true,
                 "clear": true
             },
