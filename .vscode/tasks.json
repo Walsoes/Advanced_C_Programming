@@ -9,6 +9,23 @@
             "command": "echo ${workspaceFolder}"
         },
         {
+            "label": "CompTime",
+            "type": "shell",
+            "command": " ",
+            "args": [
+                "-f",
+                ""
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        },
+        {
             "type": "shell",
             "label": "Build all C src",
             "command": "gcc",
@@ -26,9 +43,6 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "problemMatcher": [
-                // "$gcc"
-            ],
             "group": {
                 "kind": "build",
                 "isDefault": false
@@ -46,8 +60,12 @@
         {
             "type": "shell",
             "label": "Build single C-file",
-            "command": "gcc",
+            "command": "/usr/bin/time",
             "args": [
+                "-f",
+                "Elapsed time: %E\nCPU usage: %P",
+                "gcc",
+                "${input:buildprompt}",
                 "-gdwarf-2",
                 "-O0",
                 "${file}",
@@ -60,10 +78,8 @@
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
+                //"shell": {"args": []}
             },
-            "problemMatcher": [
-              
-            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -119,10 +135,22 @@
     ],
     "inputs": [
         {
-            "id": "sourceFiles",
+            "id": "buildprompt",
             "type": "promptString",
-            "description": "Enter the source files to compile (space-separated) and within ''",
-            "default": "'Project1/src/main.c' 'Project1/src/other.c'"
+            "description": "Enter extra debugging info: ''",
+            "default": ""
         }
-    ]
+    ],
+    "problemMatcher": {
+        "owner": "cpp",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+            "regexp": "^(.*?):([0-9]+):([0-9]+):\\s+(error|warning|note):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "message": 5
+        },
+}
 }
