@@ -1,0 +1,18 @@
+ 1979  gcc -c myLib.c -o lib_mylib.o
+ 1980  ar rcs lib_mylib.a lib_mylib.o
+ 1981  which ar
+ 1982  ar -t lib_mylib.a  kollar vad som finns i .a filen
+ 1983  gcc -I -c main.c -o main.o
+ 1984  gcc -I ../headers/ -c main.c -o main.o
+ 1985  gcc -o main main.o lib_mylib.a
+ 1986  ./main
+ 1987  history
+
+
+
+
+
+ /usr/lib_mylib
+
+
+ -L pathname

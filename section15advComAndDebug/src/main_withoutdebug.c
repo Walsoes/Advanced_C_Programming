@@ -3,7 +3,7 @@
 
 int sum(int x, int y, int z) {
   char c = 2;
-  int *a = NULL;
+  int *a = malloc((sizeof(int)));
 
   *a = 5;
 
