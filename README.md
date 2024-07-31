@@ -1,1 +1,1 @@
-KORV ÄR GOTT!
+SYNC mellan jobb och hem. 
