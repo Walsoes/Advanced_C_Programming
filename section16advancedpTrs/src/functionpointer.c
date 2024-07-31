@@ -43,8 +43,8 @@ void (*func_ptr)(int a, int b);
 int main()
 {
 
-    FuncType2 *funcTwoArgs = NULL;
     FuncType *funcPtr = NULL;
+    FuncType2 *funcTwoArgs = NULL;
 
     funcTwoArgs = power2;
 

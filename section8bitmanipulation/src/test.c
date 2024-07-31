@@ -6,7 +6,7 @@ long long convertDecimalToBinary(int n);
 int main()
 {
 
-    char bitmask = 0b1
+    char bitmask = 0b1;
 
     int result2 = (0b1111 << 4);
 

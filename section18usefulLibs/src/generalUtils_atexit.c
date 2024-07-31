@@ -26,10 +26,10 @@ int main()
 
 void sign_off()
 {
-    puts("Signing off now gaylord...");
+    puts("Signing off now...");
 }
 
 void too_bad()
 {
-    puts("....gaylord...");
+    puts("...");
 }
